@@ -6,8 +6,8 @@ const commentApi = createApi({
     baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/comments',
     prepareHeaders: (headers, { endpoint }) => {
       // Get the token from local storage
-      let gettoken = localStorage.getItem('token');
-      const token = JSON.parse(gettoken)
+      let token = localStorage.getItem('token');
+
       // Apply the token header only for the 'uploadVideo' mutation (example)
 
       headers.set('Authorization', `Bearer ${token}`);
