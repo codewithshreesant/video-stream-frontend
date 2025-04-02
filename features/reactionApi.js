@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const reactionApi = createApi({
   reducerPath: 'reactionApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/api/reactions', // Adjust if your base URL is different
+    baseUrl: 'https://video-stream-backend-9byt.onrender.com/reactions', // Adjust if your base URL is different
     credentials: 'include', // To send the token cookie
   }),
   tagTypes: ['Reaction'],

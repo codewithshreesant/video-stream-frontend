@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3000/api/users',
+        baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/users',
         credentials: 'include'
     }),
     endpoints: (builder) => ({

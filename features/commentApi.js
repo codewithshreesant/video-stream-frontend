@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const commentApi = createApi({
   reducerPath: 'commentApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/api/comments',
+    baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/comments',
     credentials: 'include', 
   }),
   tagTypes: ['Comment'],

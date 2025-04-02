@@ -14,7 +14,7 @@ function UserVideo() {
     if (userId) {
       const fetchUserVideos = async () => {
         try {
-          const response = await fetch(`http://localhost:3000/api/uservideo/${userId}/videos`);
+          const response = await fetch(`https://video-stream-backend-9byt.onrender.com/uservideo/${userId}/videos`);
           if (!response.ok) {
             const errorData = await response.json();
             throw new Error(errorData.message || 'Failed to fetch user videos');
