@@ -8,7 +8,6 @@ const videoApi = createApi({
         prepareHeaders: (headers, { endpoint }) => {
             // Get the token from local storage
             let gettoken = localStorage.getItem('token');
-            const token = JSON.parse(gettoken)
             // Apply the token header only for the 'uploadVideo' mutation (example)
 
             headers.set('Authorization', `Bearer ${token}`);
