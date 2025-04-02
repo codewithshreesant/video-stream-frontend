@@ -4,7 +4,23 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const reactionApi = createApi({
   reducerPath: 'reactionApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://video-stream-backend-9byt.onrender.com/reactions', // Adjust if your base URL is different
+    baseUrl: 'https://video-stream-backend-9byt.onrender.com/reactions',
+    prepareHeaders: (headers, { endpoint }) => {
+      // Get the token from local storage
+      let gettoken = localStorage.getItem('token');
+      const token = JSON.parse(gettoken)
+      // Apply the token header only for the 'uploadVideo' mutation (example)
+
+      headers.set('Authorization', `Bearer ${token}`);
+
+
+      // You can add similar conditions for other specific endpoints
+      // if (endpoint === 'someOtherProtectedQuery' && token) {
+      //     headers.set('Authorization', `Bearer ${token}`);
+      // }
+
+      return headers;
+  }, // Adjust if your base URL is different
     credentials: 'include', // To send the token cookie
   }),
   tagTypes: ['Reaction'],

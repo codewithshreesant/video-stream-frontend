@@ -4,6 +4,22 @@ const commentApi = createApi({
   reducerPath: 'commentApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/comments',
+    prepareHeaders: (headers, { endpoint }) => {
+      // Get the token from local storage
+      let gettoken = localStorage.getItem('token');
+      const token = JSON.parse(gettoken)
+      // Apply the token header only for the 'uploadVideo' mutation (example)
+
+      headers.set('Authorization', `Bearer ${token}`);
+
+
+      // You can add similar conditions for other specific endpoints
+      // if (endpoint === 'someOtherProtectedQuery' && token) {
+      //     headers.set('Authorization', `Bearer ${token}`);
+      // }
+
+      return headers;
+  },
     credentials: 'include', 
   }),
   tagTypes: ['Comment'],
