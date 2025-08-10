@@ -1,5 +1,5 @@
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react' 
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const userApi = createApi({
     reducerPath: 'userApi',
@@ -11,34 +11,38 @@ const userApi = createApi({
     endpoints: (builder) => ({
         registerUser: builder.mutation({
             query: (user) => ({
-                url:'/register',
-                method:'POST',
-                body:user 
-        })
+                url: '/register',
+                method: 'POST',
+                body: user
+            })
         }),
         loginUser: builder.mutation({
-            query:(user)=>({
-                url:'/login',
-                method:'POST',
-                body:user 
+            query: (user) => ({
+                url: '/login',
+                method: 'POST',
+                body: user
             })
         }),
         logoutUser: builder.mutation({
-            query:()=>({
-                url:'/logout',
-                method:'POST'
-            })
+            query: () => ({
+                url: '/logout',
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            }),
         }),
+
         getUserProfile: builder.query({
-            query:()=>({
-                url:'/profile',
-                method:'GET'
+            query: () => ({
+                url: '/profile',
+                method: 'GET'
             })
         })
     })
 })
 
 
-export const { useRegisterUserMutation, useLoginUserMutation, useLogoutUserMutation ,useGetUserProfileQuery } = userApi;
+export const { useRegisterUserMutation, useLoginUserMutation, useLogoutUserMutation, useGetUserProfileQuery } = userApi;
 
 export default userApi;
