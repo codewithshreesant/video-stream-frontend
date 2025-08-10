@@ -87,7 +87,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const reactionApi = createApi({
   reducerPath: 'reactionApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/comments',
+    baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/reactions',
     // baseUrl: 'http://localhost:3000/api/reactions',
     prepareHeaders: (headers) => {
       const token = localStorage.getItem('token');
