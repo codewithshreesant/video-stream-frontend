@@ -5,6 +5,7 @@ const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/users',
+        // baseUrl: 'http://localhost:3000/api/users',
         credentials: 'include'
     }),
     endpoints: (builder) => ({

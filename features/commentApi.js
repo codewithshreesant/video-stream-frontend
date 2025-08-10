@@ -4,6 +4,7 @@ const commentApi = createApi({
   reducerPath: 'commentApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://video-stream-backend-9byt.onrender.com/api/comments',
+    // baseUrl: 'http://localhost:3000/api/comments',
     prepareHeaders: (headers, { endpoint }) => {
       // Get the token from local storage
       let token = localStorage.getItem('token');

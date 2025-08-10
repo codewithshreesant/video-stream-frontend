@@ -14,13 +14,14 @@ function UserVideo() {
     if (userId) {
       const fetchUserVideos = async () => {
         try {
-          const response = await fetch(`https://video-stream-backend-9byt.onrender.com/uservideo/${userId}/videos`);
+          // const response = await fetch(`http://localhost:3000/api/user/video/${userId}/videos`);
+          const response = await fetch(`https://video-stream-backend-9byt.onrender.com/api/user/video/${userId}/videos`);
+          const data = await response.json(); // ✅ Read the body once
+
           if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.message || 'Failed to fetch user videos');
+            throw new Error(data.message || 'Failed to fetch user videos');
           }
-          const data = await response.json();
-          console.log("data ", data)
+
           setUserVideos(data.data);
           setLoading(false);
         } catch (err) {
@@ -28,6 +29,7 @@ function UserVideo() {
           setLoading(false);
         }
       };
+
       fetchUserVideos();
     }
   }, [userId]);

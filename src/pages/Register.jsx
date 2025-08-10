@@ -27,7 +27,8 @@ function Register() {
 
     try {
       const response = await registerUser({ username, email, password });
-      if (response?.data?.success) {
+      console.log("response from register user ", response);
+      if (response?.data?.statusCode == 200) {
         toast.success('Registration successful! Redirecting to login...');
         setTimeout(() => {
           navigate('/login');

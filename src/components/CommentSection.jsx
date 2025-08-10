@@ -14,7 +14,8 @@ function CommentSection({ videoId, userId }) {
     e.preventDefault();
     if (newCommentText.trim() && userId) {
       try {
-        await createComment({ videoId, text: newCommentText }).unwrap();
+        const response = await createComment({ videoId, text: newCommentText }).unwrap();
+        console.log("comment response ", response);
         setNewCommentText(''); 
       } catch (err) {
         console.error("Failed to create comment:", err);
